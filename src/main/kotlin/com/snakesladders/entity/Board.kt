@@ -13,4 +13,9 @@ class Board constructor(val size: Int) {
         return square
     }
 
+    fun getFinisher(): String? {
+        val lastSquarePlayers = boardSpace.values.last()
+        return if (lastSquarePlayers.isNotEmpty()) lastSquarePlayers.first() else null
+    }
+
 }

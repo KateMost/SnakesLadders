@@ -17,9 +17,14 @@ class Game(val board: Board, val die: Die) {
     fun play() {
         while (true) {
             playingTokens.forEach {
+                val winner = board.getFinisher()
+                if (winner != null) {
+                    print("Aaaand we've got a WINNER: $winner, congrats!!!")
+                    return
+                }
                 it.moveToken(die.roll())
-                TimeUnit.SECONDS.sleep(2)
-                println("Player: ${it.id} is currenty on square ${it.currentSquare}")//sure this would be replaced by a more equisite border renderer
+                TimeUnit.MILLISECONDS.sleep(200)
+                println("Player: ${it.id} is currenty on square ${it.currentSquare}")//sure this would be replaced by a more exquisite border renderer
             }
             println("Next round=================================")
         }

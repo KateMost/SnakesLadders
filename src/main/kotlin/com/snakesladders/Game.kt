@@ -3,6 +3,7 @@ package com.snakesladders
 import com.snakesladders.entity.Board
 import com.snakesladders.entity.Die
 import com.snakesladders.entity.Token
+import java.util.concurrent.TimeUnit
 
 class Game(val board: Board, val die: Die) {
 
@@ -17,8 +18,10 @@ class Game(val board: Board, val die: Die) {
         while (true) {
             playingTokens.forEach {
                 it.moveToken(die.roll())
+                TimeUnit.SECONDS.sleep(2)
                 println("Player: ${it.id} is currenty on square ${it.currentSquare}")//sure this would be replaced by a more equisite border renderer
             }
+            println("Next round=================================")
         }
     }
 

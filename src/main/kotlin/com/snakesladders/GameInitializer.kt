@@ -13,11 +13,11 @@ class GameInitializer(val board: Board) {
             .map { Token.startToken(it, board) }
     }
 
-    fun moveToken(playerId: String, diceNumber: Int) {
+    fun moveToken(playerId: String, dieNumber: Int) {
         val token: Token = playingTokens //ideally I would use a hash mapping instead of filtering
             .find { it.id == playerId }
             ?: throw IllegalArgumentException("No player with id $playerId is on the board")
-        token.moveToken(diceNumber)
+        token.moveToken(dieNumber)
     }
 
 }

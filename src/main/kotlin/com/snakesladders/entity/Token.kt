@@ -8,8 +8,8 @@ class Token(val id: String, var currentSquare: Int, val board: Board) {
         }
     }
 
-    fun moveToken(diceNumber: Int) {
-        val square = board.setToken(currentSquare + diceNumber, this)
+    fun moveToken(dieNumber: Int) {
+        val square = board.setToken(currentSquare + dieNumber, this)
         currentSquare = square
     }
 
